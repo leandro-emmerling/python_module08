@@ -10,8 +10,9 @@ load_dotenv()
 if __name__ == "__main__":
     print("\nORACLE STATUS: Reading the Matrix...\n")
     print("Configuration loaded:")
-    if os.environ.get('MATRIX_MODE') is not None:
-        print(f"Mode: {os.environ.get('MATRIX_MODE')}")
+    matrix_mode = os.environ.get('MATRIX_MODE')
+    if matrix_mode is not None:
+        print(f"Mode: {matrix_mode}")
     else:
         print("Mode: [MISSING] Set MATRIX_MODE in .env")
     if os.environ.get('DATABASE_URL') is not None:
@@ -34,7 +35,7 @@ if __name__ == "__main__":
     print("[OK] No hardcoded secrets detected")
     print("[OK] .env file properly configured")
     print("[OK] Production overrides available")
-    if os.environ.get('MATRIX_MODE') == 'production':
+    if matrix_mode == 'production':
         print("\nPRODUCTION MODE: Enhanced security active")
     else:
         print("\nDEVELOPMENT MODE: Debug features enabled")
