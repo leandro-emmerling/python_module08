@@ -58,6 +58,14 @@ def visualize(data: tuple[pandas.DataFrame, float, float, float]) -> None:
     plt.close()
 
 
+def show_package_versions() -> None:
+    """Display installed package versions for comparison."""
+    print("\nInstalled package versions:")
+    print(f"  pandas:     {pandas.__version__}")
+    print(f"  numpy:      {numpy.__version__}")
+    print(f"  matplotlib: {matplotlib.__version__}")
+
+
 if __name__ == "__main__":
     print("\nAnalyzing Matrix data...")
     print("Processing 1000 data points...")
@@ -65,7 +73,8 @@ if __name__ == "__main__":
     visualize(analyze(generate()))
     print("\nAnalysis complete!")
     print("Results saved to: matrix_analysis.png\n")
-    print("== Difference between pip and poetry ==")
+    show_package_versions()
+    print("\n== Difference between pip and poetry ==")
     print("pip: installs dependencies from "
           "requirements.txt (pip install -r requirements.txt)")
     print("Poetry: installs dependencies from pyproject.toml (poetry install)")
