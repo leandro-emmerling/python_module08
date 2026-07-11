@@ -26,11 +26,11 @@ if __name__ == "__main__":
         print("matrix_env\\Scripts\\activate # on Windows\n")
         print("Then run this program again.")
     else:
+        venv_path = environ.get('VIRTUAL_ENV', '')
         print("\nMATRIX STATUS: Welcome to the construct\n")
         print(f"Current Python: {executable}")
-        print(f"Virtual Environment: "
-              f"{path.basename(environ.get('VIRTUAL_ENV'))}")
-        print(f"Environment Path: {environ.get('VIRTUAL_ENV')}\n")
+        print(f"Virtual Environment: {path.basename(venv_path)}")
+        print(f"Environment Path: {venv_path}\n")
         print("SUCCESS: You're in an isolated environment!")
         print("Safe to install packages without affecting the global system.")
         print("\nPackage installation path:")
