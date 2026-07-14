@@ -34,7 +34,10 @@ if __name__ == "__main__":
         print("Zion Network: [MISSING] Set ZION_ENDPOINT in .env")
     print("\nEnvironment security check:")
     print("[OK] No hardcoded secrets detected")
-    print("[OK] .env file properly configured")
+    if os.path.exists('.env'):
+        print("[OK] .env file properly configured")
+    else:
+        print("[WARNING] No .env file found")
     print("[OK] Production overrides available")
     if matrix_mode == 'production':
         print("\nPRODUCTION MODE: Enhanced security active")
